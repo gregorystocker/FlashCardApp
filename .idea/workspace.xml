@@ -2,30 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1766c12b-786a-49e9-87c5-9002283f35ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/BASIC_LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/ojdbc.policy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/ojdbc11.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/ons.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/oraclepki.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/orai18n.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/osdt_cert.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/osdt_core.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/rsi.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/simplefan.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/ucp.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/xdb.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/xmlparserv2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlashCardAppFromGithub.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FlashCardAppFromGithub.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/BASIC_LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/ojdbc.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/ojdbc11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/ons.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/oraclepki.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/orai18n.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/osdt_cert.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/osdt_core.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/rsi.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/simplefan.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/ucp.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/xdb.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/libs/ojdbc11-full/xmlparserv2.jar" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -56,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="47" column="57" selection-start-line="47" selection-start-column="57" selection-end-line="47" selection-end-column="57" />
+            <state relative-caret-position="306">
+              <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -187,14 +181,6 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="FlashCardAppFromGithub" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlashCardAppFromGithub" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="ojdbc11-full" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -256,7 +242,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49667773" visible="true" weight="0.2524013" />
       <window_info id="Structure" order="1" sideWeight="0.50332224" side_tool="true" visible="true" weight="0.2524013" />
@@ -425,8 +410,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="57" selection-start-line="47" selection-start-column="57" selection-end-line="47" selection-end-column="57" />
+        <state relative-caret-position="306">
+          <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
