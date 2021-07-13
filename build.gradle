@@ -19,6 +19,7 @@ repositories {
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
     mavenCentral()
+   
 }
 
 //Configure a project to publish Javadoc and sources
@@ -39,9 +40,12 @@ jar {
 dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:29.0-jre'
-
+    //This is for the JDBC driver that is downloaded locally
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     // Use JUnit test framework
     testImplementation 'junit:junit:4.13'
+    //implementation file('libs/:ojdbc11-full');
+    compile files('libs/mysql-connector-java-8.0.25.jar')
 }
 
 application {
