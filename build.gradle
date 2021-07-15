@@ -38,14 +38,19 @@ jar {
 }
 
 dependencies {
+    //JAVA===========================================
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:29.0-jre'
-    //This is for the JDBC driver that is downloaded locally
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    // Use JUnit test framework
+    //JUNIT==========================================
     testImplementation 'junit:junit:4.13'
-    //implementation file('libs/:ojdbc11-full');
-    compile files('libs/mysql-connector-java-8.0.25.jar')
+    //MYSQL==========================================
+    //Tells computer what folder to check for mySQL API
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //Name of the jar that locally holds the API for Java-mySQL connction.
+    compile files('mysql-connector-java-8.0.25.jar')
+    //JSON-Simple====================================
+    //grabs JSON-Simple remotely
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 }
 
 application {
