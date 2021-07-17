@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -62,7 +63,6 @@ public class GUI extends JFrame{
     private JPanel questionTextPanel = new JPanel();
     private JLabel enterQuestionLabel = new JLabel("Enter Question:");
     private JTextField enterQuestionField = new JTextField("Enter Question Here");
-
     //AnswerText
     private JPanel answerTextPanel = new JPanel();
     private JLabel enterAnswerLabel = new JLabel("Enter Answer:");
@@ -80,18 +80,14 @@ public class GUI extends JFrame{
     private AnswerImageListener answerImageListener = new AnswerImageListener();
     private JButton uploadAnswerButton = new JButton("Upload Answer Image:");
     private UploadAnswerListener uploadAnswerListener = new UploadAnswerListener();
-
     //submitButton
     JButton submitFormButton = new JButton("Submit");
     SubmitFormListener submitFormListener = new SubmitFormListener();
-
-
     //CENTER
     private JPanel centerPanel = new JPanel();
     private JLabel questionLabel = new JLabel("Question:");
     private JTextArea questionArea = new JTextArea();
     private JPanel questionImageArea = new JPanel();
-
 
 
     public void createGUI(){
@@ -384,13 +380,12 @@ public class GUI extends JFrame{
     //accordingly
     class ItemChangeListener implements ItemListener {
         @Override
-        public void itemStateChanged(ItemEvent event){
+        public void itemStateChanged(ItemEvent event) {
             if(event.getStateChange() == ItemEvent.SELECTED){
                 Object item = event.getItem();
                 String subject = item.toString();
-                JavaSQLConnect connectObj = new JavaSQLConnect();
 
-
+                    JavaSQLConnect connectObj = new JavaSQLConnect();
 
                 //ESTABLISH A CONNECTION WITH THE DATABASE
                 try {
@@ -405,10 +400,6 @@ public class GUI extends JFrame{
                     ArrayList<String> questionKeyList = connectObj.getQuestionKeys( subject);
                     String firstQuestionKey = questionKeyList.get(0);
                     Cards.setCurrentQuestionKeys(questionKeyList);
-
-                    //the old way to do it before images.
-                    //getQuestionArea().setText(connectObj.getQuestion(firstQuestionKey));//---------------------------
-
                     //handleQuestionCase dynamically handles setting up current question,be it an image or a text .
                     handleQuestionCase();
                     //Cards.displayCurrentQuestionKeys(); // for debugging purposes
@@ -417,6 +408,7 @@ public class GUI extends JFrame{
                 } catch (Exception e) {
                     System.out.println(e);
                 }//ends catch
+
 
 
             }//ends if
@@ -433,6 +425,7 @@ public class GUI extends JFrame{
             try {
                 JavaSQLConnect connectObj = new JavaSQLConnect();
                 connected = Cards.getConnected();
+
 
                 // Empty Key set
                 if (Cards.getCurrentQuestionKeys().size() == 0) {
@@ -457,6 +450,8 @@ public class GUI extends JFrame{
                 }//ends else
                 //clears the last question`s answer off of the screen
 
+
+
                 answerArea.setText("");
 
                 //TESTING AREA TESTING AREA TESTING AREA TESTING AREA TESTING AREA----------------------------------------
@@ -470,6 +465,7 @@ public class GUI extends JFrame{
             }catch(Exception e){
                 System.out.println(e);
             }
+
 
         }//ends actionPerformed
 
@@ -588,9 +584,6 @@ public class GUI extends JFrame{
         }
     }//ends QuestionImageListener
 
-
-
-
     class UploadQuestionListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
             FileHandler fh = Cards.getFileHandlerObj();
@@ -606,7 +599,6 @@ public class GUI extends JFrame{
             //after fileOpenBrowser is called, we can add the image using From and to variables
             System.out.println("New question image added: " + questionFileName);
             Cards.setCurrentQuestionImageURL(questionToPath + questionFileName);
-
         }
     }
 

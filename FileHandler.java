@@ -91,10 +91,11 @@ public class FileHandler extends Component {
     public FileHandler() {
 
     }
+
     public String getCurrentFolder(){
         String current ="";
         try {
-
+            //returns the path of the file object /src
              current = new java.io.File(".").getCanonicalPath() + "\\src\\";
         }catch(IOException e){System.out.println(e);}
         return current;
@@ -189,7 +190,6 @@ public class FileHandler extends Component {
             answerFromPath = parent;
             answerFileName = filename;
         }
-
 
         System.out.println("The from path is: " + parent);
         System.out.println("You have selected: " + filename);

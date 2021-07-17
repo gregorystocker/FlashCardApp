@@ -1,30 +1,45 @@
 import java.io.File;
+import java.io.FileReader;
 import java.sql.*;
 import java.util.Properties;
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
-
+import org.json.simple.JSONObject;
+import java.io.FileWriter;
+import java.io.IOException;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class JavaSQLConnect {
 
-
-    //standard variables
-    String userName = "root";
-    String password = "gjsk8r123";
-    String dbms = "mysql";
-    String serverName = "localhost";
-    String portNumber = "3306";
-    String dbName = "flashcardsdb";
-    String tableName = "writtencards";
-    String questionText = "what is 2 + 2?";
+    JSONObject jsonObject = new JSONObject();
+    //mySQL variables
+    String userName;
+    String password;
+    String dbms;
+    String serverName;
+    String portNumber;
+    String dbName;
+    String tableName;
     //JDBC variables
     Connection conn = null;
     Connection connected = null;
     Properties connectionProps = new Properties();
     Statement statement = null;
     ResultSet resultset = null;
-    //This function was gotten from the official docs.
+
+    public JavaSQLConnect(){
+
+    try{
+        writeJSON();
+        readJSON();
+    }catch(Exception e){e.printStackTrace();}
+
+    }
+
+    //This function comes from the official docs.
     public Connection getConnection() throws SQLException {
         //Connection conn = null;
         //Properties connectionProps = new Properties();
@@ -49,6 +64,100 @@ public class JavaSQLConnect {
         return conn;
 
         //resultset = statement.executeQuery("SELECT * FROM writtencards");
+    }
+    /***
+        reads in fron the JSON file to load SQL connection information.
+     String userName = "root";
+     String password = "defaultPassword";
+     String dbms = "mysql";
+     String serverName = "localhost";
+     String portNumber = "3306";
+     String dbName = "flashcardsdb";
+     String tableName = "writtencards";
+     */
+    @SuppressWarnings("unchecked")
+    public void writeJSON() throws java.lang.Exception{
+        //Store local information into JSONObject
+        JSONObject SQLConnectionDetails = new JSONObject();
+        SQLConnectionDetails.put("userName", "root");
+        SQLConnectionDetails.put("password", "gjsk8r123");
+        SQLConnectionDetails.put("dbms", "mysql");
+        SQLConnectionDetails.put("serverName", "localhost");
+        SQLConnectionDetails.put("portNumber", "3306");
+        SQLConnectionDetails.put("dbName", "flashcardsdb");
+        SQLConnectionDetails.put("tableName", "writtenCards");
+        //Write to JSON file for persistent data
+        //Write JSON file
+        String path = "src\\main\\resources\\SQLData.json";
+        try (FileWriter file = new FileWriter(new File(path))) {
+            //We can write any JSONArray or JSONObject instance to the file
+            file.write(SQLConnectionDetails.toJSONString());
+            file.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @SuppressWarnings("unchecked")
+    public void readJSON() {
+        String path = "src\\main\\resources\\SQLData.json";
+        //JSON parser object to parse read file
+        JSONParser jsonParser = new JSONParser();
+
+        try (FileReader reader = new FileReader(new File(path))) {
+            //Read JSON file
+            Object obj = jsonParser.parse(reader);
+            parseSQLDetailsObject( (JSONObject) obj );
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /***
+     reads in fron the JSON file to load SQL connection information.
+     String userName = "root";
+     String password = "defaultPassword";
+     String dbms = "mysql";
+     String serverName = "localhost";
+     String portNumber = "3306";
+     String dbName = "flashcardsdb";
+     String tableName = "writtencards";
+     */
+    private void parseSQLDetailsObject(JSONObject obj)
+    {
+
+        //Get userName
+        String userName = (String) obj.get("userName");
+        System.out.println(userName);
+        this.userName = userName;
+        //Get password
+        String password = (String) obj.get("password");
+        System.out.println(password);
+        this.password = password;
+
+        //Get dbms name
+        String dbms = (String) obj.get("dbms");
+        System.out.println(dbms);
+        this.dbms = dbms;
+
+        //Get serverNo name
+        String serverName = (String) obj.get("serverName");
+        System.out.println(serverName);
+        this.serverName = serverName;
+
+        //Get portNo name
+        String portNumber = (String) obj.get("portNumber");
+        System.out.println(portNumber);
+        this.portNumber = portNumber;
+        //Get dbName name
+        String dbName = (String) obj.get("dbName");
+        System.out.println(dbName);
+        this.dbName = dbName;
+
+        //Get employee tableName name
+        String tableName = (String) obj.get("tableName");
+        System.out.println(tableName);
+        this.tableName = tableName;
     }
 
     public void printSQLColumn(int column){
@@ -430,9 +539,6 @@ public class JavaSQLConnect {
                 }
 
             }
-
-
-
 
         }
         System.out.println(sbList);

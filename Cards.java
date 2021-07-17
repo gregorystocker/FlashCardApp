@@ -7,12 +7,28 @@ import java.util.ArrayList;
 
 //the top of the inheritance hiearchy
 public class Cards{
+
+    //STATIC VARIABLES:------------------------------------------------------------------------------------
     static JavaSQLConnect JavaMySQLConnectObj;
     //set in: Main
     static GUI GUIobj = new GUI();
     static FileHandler FileHandlerObj = new FileHandler();
     static String currentFolder;
-
+    static Connection connected;
+    //set in:
+    //current question holds the INDEX of the question in currentQuestionKeys not the actual key number.
+    static int currentQuestionIndex;
+    static String currentSubject;
+    //set in: Main
+    static ArrayList<String> subjectList = new ArrayList();
+    //set in: Main
+    static ArrayList<String> currentQuestionKeys = new ArrayList();
+    static String currentAnswerImageURL;
+    static String currentQuestionImageURL;
+    //Holds the array with info that is updated when new question is added
+    static String[] newQuestion = {"subject", "question", "answer", "questionImg", "answerImg"};
+    //declares what is represented by an image, answer, question or both?
+    static String currentType;  // Can be "ANSWERONLY" , "QUESTIONONLY", ""NEITHER or "BOTH"
     public static GUI getGUIobj() {
         return GUIobj;
     }
@@ -20,9 +36,8 @@ public class Cards{
         Cards.GUIobj = GUIobj;
     }
 
-    static String currentAnswerImageURL;
-    static String currentQuestionImageURL;
 
+    //METHODS---------------------------------------------------------------------------------------------------
     public static String getCurrentIndexInKeys(){return Cards.getCurrentQuestionKeys().get(Cards.getCurrentQuestionIndex());}
     public static String[] getNewQuestion() {
         return newQuestion;
@@ -32,12 +47,7 @@ public class Cards{
         Cards.newQuestion = newQuestion;
     }
 
-    //Holds the array with info that is updated when new question is added
-    static String[] newQuestion = {"subject", "question", "answer", "questionImg", "answerImg"};
 
-    //declares what is represented by an image, answer, question or both?
-
-    static String currentType;  // Can be "ANSWERONLY" , "QUESTIONONLY", ""NEITHER or "BOTH"
 
     public static  String getCurrentType() {
         return currentType;
@@ -47,21 +57,7 @@ public class Cards{
         Cards.currentType = currentType;
     }
 
-    static Connection connected;
-    //set in:
 
-    //current question holds the INDEX of the question in currentQuestionKeys not the actual key number.
-    static int currentQuestionIndex;
-
-
-    static String currentSubject;
-    //set in: Main
-
-
-    static ArrayList<String> subjectList = new ArrayList();
-    //set in: Main
-
-    static ArrayList<String> currentQuestionKeys = new ArrayList();
 
     public static ArrayList<String> getSubjectList() {
         return subjectList;
@@ -102,7 +98,6 @@ public class Cards{
         currentQuestionIndex = mcurrentQuestion;
 
     }
-
 
     public static ArrayList<String>getCurrentQuestionKeys() {
         return currentQuestionKeys;

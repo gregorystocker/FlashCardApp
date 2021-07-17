@@ -4,15 +4,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-/*
-Version 2:
-Text works fine, uploading questions of both types and urls are fine.
-Image folder created and storing new images.
-Next Step: Displaying images, some functions created but not implemented yet. Can display a picture, but the picture is not sized
-appropriately.
- */
+
 
 public class Main {
+
+    //Strictly for testing
+    public int getNum(){return 1;}
 
 
     public static void main(String[] args) {
@@ -25,47 +22,35 @@ public class Main {
         Cards.setJavaMySQLConnectObj(connectObj);
         ArrayList<String> subjectList = new ArrayList();
         ArrayList<String> questionKeys = new ArrayList();
-        String dummy = "";
-
-        //FileHandler fh = new FileHandler(dummy);
-
-
-
         Connection connected = null;
-
 
         //ESTABLISH A CONNECTION WITH THE DATABASE
         try {
             connected = connectObj.getConnection();
             Cards.setConnected(connected);
-
             //create a new file for images if not already created.
             FileHandler fileHandlerObj = new FileHandler();
 
             //updating Cards and getting and creating the images folder
             Cards.setFileHandlerObj(fileHandlerObj);
             String currentFolder = fileHandlerObj.getCurrentFolder();
+            System.out.println("Current Folder is :" + currentFolder + " \n");
             Cards.setCurrentFolder(currentFolder);
 
             //this step should be in an install wizard instead. this line creates the images folder,
             // only needed the first time.
             Cards.getFileHandlerObj().createFolder(currentFolder, "images");
 
-
             //connectObj.printSQLColumn(3); //for testing purposes
-            subjectList = connectObj.getSubjectArrayList( 1);
+            subjectList = connectObj.getSubjectArrayList(1);
             //trims out duplicate subjects
-            subjectList= removeDuplicates(subjectList);
+            subjectList = removeDuplicates(subjectList);
             Cards.setSubjectList(subjectList);
-
-
-
 
             //goes through the subjects and and sets the GUI to display them in subjectArea
             for(String subject: subjectList){
                 GUIobj.addSubject(subject);
             }
-
             String subject = "";
 
             //getSelectedObjects returns a SINGLE element array of the current object
